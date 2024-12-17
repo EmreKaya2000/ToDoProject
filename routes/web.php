@@ -1,8 +1,13 @@
 <?php
 
-use App\Http\Controllers\DenemeController;
+
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/test', function () {
-    return view('panel.layout.app');
-});
+
+
+//Task Route'ları start
+Route::get('/panel/tasks/create', [TaskController::class, 'createPage'])->name('panel.tasks.create');
+Route::post('/panel/tasks/create', [TaskController::class, 'addTask'])->name('panel.tasks.add');
+
+//Task Route'ları end
